@@ -1,0 +1,95 @@
+@import url("https://fonts.googleapis.com/css2?family=Playwrite+GB+S:ital,wght@0,100..400;1,100..400&display=swap");
+
+.right-board-container {
+  font-family: "Playwrite GB S", cursive;
+  color: white;
+  font-weight: 600;
+  font-size: 20px;
+  position: absolute;
+  width: 70%;
+  height: 75%;
+  top: 50%;
+  left: 50%;
+  opacity: 1;
+  transform: translate(-50%, -50%);
+  z-index: 21;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.right-choices {
+  flex: 2;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.right-choices > div {
+  width: 100%;
+  height: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  transition: text-shadow 0.2s ease;
+}
+
+.right-choices > div:hover {
+  text-shadow: 0 0 5px white;
+}
+
+.right-content {
+  flex: 10;
+  height: 100%;
+}
+
+@media (max-width: 1669px) {
+  .right-board-container {
+    font-size: 16px;
+  }
+}
+
+@media (max-width: 1025px) {
+  .right-board-container {
+    width: 100%;
+    font-size: 14px;
+  }
+}
+
+@media (max-width: 769px) {
+  .right-board-container {
+    width: 100%;
+    font-size: 16px;
+    flex-direction: column;
+  }
+  .right-choices {
+    flex-direction: row;
+    width: 100%;
+    flex: 1;
+  }
+}
+
+@media (max-width: 426px) {
+  .right-board-container {
+    width: 100%;
+    font-size: 12px;
+  }
+}
+
+@media (max-width: 375px) {
+  .right-board-container {
+    width: 100%;
+    font-size: 10px;
+    flex-direction: column;
+  }
+}
+
+@media (max-width: 320px) {
+  .right-board-container {
+    width: 100%;
+    font-size: 8px;
+    flex-direction: column;
+  }
+}

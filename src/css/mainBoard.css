@@ -1,0 +1,66 @@
+@import url("https://fonts.googleapis.com/css2?family=Playwrite+GB+S:ital,wght@0,100..400;1,100..400&display=swap");
+
+.main-board-container {
+  font-family: "Playwrite GB S", cursive;
+  color: white;
+  font-weight: 400;
+  position: absolute;
+  width: 960px;
+  max-width: 960px;
+  height: 80%;
+  top: 50%;
+  left: 50%;
+  opacity: 1;
+  transform: translate(-50%, -50%);
+  z-index: 20;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
+
+.Familiar {
+  text-align: center;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.box-card {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
+
+.Plan {
+  flex: 1;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+}
+
+.tools-card {
+  margin: 10px;
+  height: 70px;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 2px solid white;
+  border-radius: 20px;
+}
+
+@media (max-width: 1025px) {
+  .main-board-container {
+    width: 90%;
+  }
+}
+
+@media (max-width: 426px) {
+  .main-board-container {
+    font-size: 10px;
+  }
+}
+
+@media (max-height: 700px) {
+  .tools-card {
+    height: 40px;
+  }
+}

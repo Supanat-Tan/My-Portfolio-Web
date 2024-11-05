@@ -1,0 +1,24 @@
+.main-credit-container {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+.main-credit-container > div {
+  width: 100%;
+  height: 50px;
+  display: flex;
+  justify-content: center;
+  color: white;
+}
+
+.main-credit-container > div > span {
+  color: rgb(0, 217, 255);
+  margin-left: 5px;
+  margin-right: 5px;
+}

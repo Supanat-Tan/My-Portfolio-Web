@@ -1,0 +1,32 @@
+@import url("https://fonts.googleapis.com/css2?family=Playwrite+GB+S:ital,wght@0,100..400;1,100..400&display=swap");
+
+.main-todo {
+  height: 100%;
+}
+
+@media (max-width: 1025px) {
+  .main-todo {
+    font-size: 16px;
+    text-align: center;
+  }
+}
+
+@media (max-width: 769px) {
+  .main-todo {
+    font-size: 12px;
+    text-align: center;
+  }
+  .content-box {
+    font-size: 12px;
+    text-align: center;
+  }
+}
+
+@media (max-height: 600px) {
+  .content-box {
+    height: 300px;
+    font-size: 12px;
+    text-align: center;
+    overflow: scroll;
+  }
+}

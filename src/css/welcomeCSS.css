@@ -1,0 +1,14 @@
+@import url("https://fonts.googleapis.com/css2?family=Playwrite+GB+S:ital,wght@0,100..400;1,100..400&display=swap");
+
+.container > div {
+  font-family: "Playwrite GB S", cursive;
+  font-weight: 400;
+}
+
+.container > div > div {
+  transition: all 0.2s ease;
+}
+
+.container > div > div:hover {
+  text-shadow: 0 0 5px #ffffff;
+}
