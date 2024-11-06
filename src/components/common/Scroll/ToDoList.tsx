@@ -60,14 +60,12 @@ const ToDoList = () => {
 
       if (res.ok) {
         const resData = await res.json();
-        console.log(resData);
         const newlyAdd = {
           _id: resData.data._id,
           listTitle: cl,
           listDate: date,
         };
         setToDoLists((l) => [...l, newlyAdd]);
-        console.log(newlyAdd);
         if (formRef.current) {
           formRef.current.reset();
         }
