@@ -118,6 +118,9 @@ const Login = () => {
           <h3 className="font-bold">
             Please log-in or sign-up to use this feature
           </h3>
+          <h3 className="font-bold">
+            Please use fake email for now. no valiator
+          </h3>
           <form
             onSubmit={handleSubmit}
             className="flex flex-col justify-center items-center"

@@ -45,8 +45,6 @@ const ToDoList = () => {
   ) => {
     e.preventDefault();
 
-    const newlyAdd = { _id: "123456", listTitle: cl, listDate: date };
-
     try {
       const res = await fetch("/api/createList", {
         method: "POST",
@@ -61,12 +59,18 @@ const ToDoList = () => {
       });
 
       if (res.ok) {
+        const resData = await res.json();
+        console.log(resData);
+        const newlyAdd = {
+          _id: resData.data._id,
+          listTitle: cl,
+          listDate: date,
+        };
         setToDoLists((l) => [...l, newlyAdd]);
+        console.log(newlyAdd);
         if (formRef.current) {
           formRef.current.reset();
         }
-
-        console.log(listDate);
 
         successHandler("Successfully created list");
         setListTitle("");

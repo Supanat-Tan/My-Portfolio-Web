@@ -13,5 +13,9 @@ export async function POST(req: Request) {
     return NextResponse.json({ data });
   } catch (err) {
     console.log(err);
+    return NextResponse.json(
+      { error: "Error creating todo item" },
+      { status: 500 }
+    );
   }
 }
