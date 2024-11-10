@@ -1,13 +1,14 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import "../../../css/imageSlider.css";
 import Image from "next/image";
 
 interface ImageSliderProps {
   images: string[];
+  interval?: number;
 }
 
-const ImageSlider: React.FC<ImageSliderProps> = ({ images }) => {
-  const [selectimages, setSelectImages] = useState(0);
+const ImageSlider: React.FC<ImageSliderProps> = ({ images, interval }) => {
+  const [selectImages, setSelectImages] = useState(0);
 
   const nextImage = () => {
     setSelectImages((img) => (img === images.length - 1 ? 0 : img + 1));
@@ -19,7 +20,7 @@ const ImageSlider: React.FC<ImageSliderProps> = ({ images }) => {
 
   let thirdImage: number = 2;
 
-  switch (selectimages) {
+  switch (selectImages) {
     case 0:
       thirdImage = 2;
       break;
@@ -31,23 +32,29 @@ const ImageSlider: React.FC<ImageSliderProps> = ({ images }) => {
       break;
   }
 
+  useEffect(() => {
+    const slideInterval = setInterval(nextImage, interval);
+
+    return () => clearInterval(slideInterval);
+  });
+
   return (
     <div className="main-all-container">
-      <button onClick={prevImage}>Previous</button>
+      <button onClick={prevImage}>Prev</button>
       <div className="image-container">
         <Image
           src={images[0]}
           alt={"Mech1"}
           width={512}
           height={768}
-          className={`image${selectimages}`}
+          className={`image${selectImages}`}
         />
         <Image
           src={images[1]}
           alt={"Mech2"}
           width={512}
           height={768}
-          className={`image${selectimages + 1 === 3 ? 0 : selectimages + 1}`}
+          className={`image${selectImages + 1 === 3 ? 0 : selectImages + 1}`}
         />
         <Image
           src={images[2]}

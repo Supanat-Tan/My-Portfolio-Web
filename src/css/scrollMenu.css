@@ -43,6 +43,7 @@
   flex: 7;
   display: flex;
   flex-direction: column;
+  z-index: 70;
 }
 
 .control-choices > div {

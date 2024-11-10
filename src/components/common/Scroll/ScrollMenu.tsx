@@ -37,7 +37,7 @@ const ScrollMenu = () => {
         </div>
         <div className="content">
           {!session && <Login />}
-          {showImageSlider && <ImageSlider images={images} />}
+          {showImageSlider && <ImageSlider images={images} interval={5000} />}
           {showToDoList && <ToDoList />}
         </div>
       </div>

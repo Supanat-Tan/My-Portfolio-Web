@@ -15,6 +15,7 @@ const ToDoList = () => {
   const [success, setSuccess] = useState("");
   const [error, setError] = useState("");
   const [isLoading, setisLoading] = useState(true);
+  const [isFormValid, setIsFormValid] = useState(true);
 
   const { data: session } = useSession();
 
@@ -44,6 +45,20 @@ const ToDoList = () => {
     date: Date | null
   ) => {
     e.preventDefault();
+
+    if (!listTitle) {
+      errorHandler("Please fill in the list title");
+      setIsFormValid(false);
+      return;
+    }
+
+    if (!cl) {
+      errorHandler("Please fill in the list title");
+      setIsFormValid(false);
+      return;
+    }
+
+    setIsFormValid(true);
 
     try {
       const res = await fetch("/api/createList", {
@@ -84,6 +99,10 @@ const ToDoList = () => {
   };
 
   useEffect(() => {
+    if (!isFormValid) {
+      return;
+    }
+
     const fetchList = async () => {
       try {
         const list = await fetch("/api/todoList", {
@@ -111,20 +130,12 @@ const ToDoList = () => {
     };
 
     fetchList();
-  }, [userId]);
+  }, [userId, isFormValid]);
 
   if (isLoading) {
     return (
       <div className="flex justify-center items-center h-[100%] text-2xl">
         Loading...
-      </div>
-    );
-  }
-
-  if (error) {
-    return (
-      <div className="flex justify-center items-center h-[100%] text-2xl">
-        Error fetching data
       </div>
     );
   }
@@ -195,13 +206,18 @@ const ToDoList = () => {
               {success}
             </div>
           )}
+          {error && (
+            <div className="bg-red-500 text-white w-[80%] rounded-lg h-[100px] flex justify-center items-center text-center">
+              {error}
+            </div>
+          )}
         </div>
       </div>
-      <div className="flex-[8_0_0%] flex flex-col justify-center items-center h-[100%] content-box">
+      <div className="flex-[8_0_0%] flex flex-col justify-center items-center content-box px-4 sm:px-6 lg:px-8 max-h-[80vh] overflow-y-auto">
         {todoLists.map((todo) => (
           <div
             key={todo._id}
-            className="flex mt-4 w-[90%] h-auto justify-center items-center"
+            className="flex flex-col sm:flex-row mt-4 w-full sm:w-[90%] h-auto justify-center sm:justify-between items-center bg-transparent p-4 rounded-lg"
           >
             {todo.listTitle} ---{" "}
             {todo.listDate

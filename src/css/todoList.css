@@ -6,6 +6,14 @@
   flex-direction: row;
   justify-content: center;
   align-items: center;
+  max-height: 100vh;
+  width: 100%;
+}
+
+.content-box {
+  height: 100%;
+  width: 100%;
+  overflow-y: auto;
 }
 
 @media (max-width: 1025px) {
@@ -13,6 +21,11 @@
     font-size: 16px;
     text-align: center;
     flex-direction: column;
+    max-height: 70vh;
+  }
+  .content-box {
+    height: 300px;
+    overflow-y: auto;
   }
 }
 
@@ -23,8 +36,9 @@
     flex-direction: column;
   }
   .content-box {
-    font-size: 12px;
-    text-align: center;
+    max-height: 50vh;
+    height: 300px;
+    overflow-y: auto;
   }
 }
 
@@ -33,6 +47,6 @@
     height: 300px;
     font-size: 12px;
     text-align: center;
-    overflow: scroll;
+    overflow-y: auto;
   }
 }
