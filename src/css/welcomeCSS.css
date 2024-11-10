@@ -1,14 +1,55 @@
 @import url("https://fonts.googleapis.com/css2?family=Playwrite+GB+S:ital,wght@0,100..400;1,100..400&display=swap");
 
+.container {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  z-index: 50;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transform: translate(-50%, -50%);
+  width: 500px;
+}
+
 .container > div {
   font-family: "Playwrite GB S", cursive;
   font-weight: 400;
+  color: white;
 }
 
-.container > div > div {
+.container > div > :nth-child(-n + 3) {
   transition: all 0.2s ease;
+  width: 200px;
+  height: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50px;
+  margin-top: 20px;
+  border: 1px solid white;
+  cursor: pointer;
+  background-color: transparent;
+  backdrop-filter: blur(20px);
+  background-image: linear-gradient(
+    120deg,
+    rgba(255, 255, 255, 0.3) rgba(0, 0, 0, 0.2)
+  );
 }
 
 .container > div > div:hover {
   text-shadow: 0 0 5px #ffffff;
+}
+
+.orbit-control {
+  transition: all 0.2s ease;
+  width: 200px;
+  height: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50px;
+  margin-top: 20px;
+  border: 1px solid white;
+  cursor: pointer;
 }

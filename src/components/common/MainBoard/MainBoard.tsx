@@ -23,6 +23,7 @@ const MainBoard = () => {
     "Unity",
     "Unreal Engine",
     "Blender",
+    "Vue.js",
   ];
 
   return (

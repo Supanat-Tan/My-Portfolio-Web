@@ -153,7 +153,7 @@ const ToDoList = () => {
   };
 
   return (
-    <div className="flex flex-row main-todo items-center justify-center">
+    <div className="main-todo">
       <div className="flex-[2_1_0%] h-[100%] flex flex-col justify-center items-center">
         <div className="flex-1 flex flex-col justify-center items-center font-normal">
           <form

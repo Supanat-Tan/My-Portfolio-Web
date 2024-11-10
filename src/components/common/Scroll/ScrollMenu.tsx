@@ -3,15 +3,20 @@ import "../../../css/scrollMenu.css";
 import ToDoList from "./ToDoList";
 import Login from "./LoginSignup";
 import { signOut, useSession } from "next-auth/react";
+import ImageSlider from "./ImageSlider";
 
 const ScrollMenu = () => {
   const { data: session } = useSession();
 
   const [showToDoList, setShowToDoList] = useState(false);
+  const [showImageSlider, setShowImageSlider] = useState(false);
 
-  const handleMenu = (op1: boolean) => {
+  const handleMenu = (op1: boolean, op2: boolean) => {
     setShowToDoList(op1);
+    setShowImageSlider(op2);
   };
+
+  const images = ["/imgs/mech_1.jpg", "/imgs/mech_2.jpg", "/imgs/mech_3.jpg"];
 
   return (
     <>
@@ -22,8 +27,8 @@ const ScrollMenu = () => {
           </div>
           {session && (
             <div className="control-choices">
-              <div onClick={() => handleMenu(true)}>To Do List</div>
-              <div onClick={() => handleMenu(false)}>More Coming</div>
+              <div onClick={() => handleMenu(true, false)}>To Do List</div>
+              <div onClick={() => handleMenu(false, true)}>Image Slider</div>
               <div onClick={() => signOut()} className="text-red-500">
                 Sign out
               </div>
@@ -32,7 +37,7 @@ const ScrollMenu = () => {
         </div>
         <div className="content">
           {!session && <Login />}
-
+          {showImageSlider && <ImageSlider images={images} />}
           {showToDoList && <ToDoList />}
         </div>
       </div>
